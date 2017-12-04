@@ -46,10 +46,12 @@
 - (IBAction)tapCard:(UITapGestureRecognizer *)sender {
   if (self.cardsGathered) {
     [self stopGatherParty];
+    [self placeCardViewsAccordingToGrid];
   } else {
     [self gameCardSelected:sender];
+    [self updateUI:YES];
   }
-  [self updateUI:YES];
+
 }
 
 - (IBAction)tapDeck:(UITapGestureRecognizer *)sender {
@@ -154,6 +156,7 @@
     [self updateGridAndPlaceCards];
   }
   self.deckView.alpha = [self.game cardsInDeckNum] < 3 ? 0.5 : 1;
+  self.scoreLabel.text = [NSString stringWithFormat:@"score: %ld", self.game.score];
 }
 - (void)updateGridAndPlaceCards{
   [self changeGrid];
@@ -249,7 +252,7 @@
     UITapGestureRecognizer *tapRec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDeck:)];
     [_deckView addGestureRecognizer:tapRec];
   } else {
-    _deckView.alpha = 0;
+    _deckView.hidden = YES;
   }
 }
 
