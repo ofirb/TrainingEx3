@@ -16,16 +16,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Matchismo/viewContollers/ViewController.m"
-            timestampString = "531674492.408613"
+            filePath = "Matchismo/view/viewContollers/ViewController.m"
+            timestampString = "532366431.707378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-prepareForSegue:sender:"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "-tapCard:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

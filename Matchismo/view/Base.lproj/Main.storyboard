@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7M0-hL-Jz6">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="cga-wv-6IQ">
+            <objects>
+                <tabBarController id="7M0-hL-Jz6" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RDo-Le-zK4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Odx-kK-9y1"/>
+                        <segue destination="ma9-7X-wdO" kind="relationship" relationship="viewControllers" id="JNu-px-Syj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aqh-DU-8Dl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-978" y="163"/>
+        </scene>
+        <!--Play Cards Match-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="PlayingCardsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="26" text="score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUh-Ku-ffP">
+                                <rect key="frame" x="20" y="661" width="150" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="79r-3B-coS" customClass="cardsAreaView">
+                                <rect key="frame" x="20" y="20" width="374" height="457.33333333333331"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="dY0-cm-4iY" appends="YES" id="Mrq-r8-obf"/>
+                                    <outletCollection property="gestureRecognizers" destination="DKJ-WP-28Z" appends="YES" id="K99-Y0-BhY"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5F-Ms-kip" customClass="DeckView">
+                                <rect key="frame" x="170" y="495.00000000000006" width="74" height="114.33333333333343"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="U5F-Ms-kip" secondAttribute="height" multiplier="0.65" id="aZf-fS-Hy8"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDe-no-j5a">
+                                <rect key="frame" x="314" y="646" width="80" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="39I-XC-Tps"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="qQ3-r9-fkf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="re-deal" backgroundImage="cardfront">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.8985445205" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="redealButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zc9-Wp-WfC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.8985445205479452" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="U5F-Ms-kip" firstAttribute="height" secondItem="79r-3B-coS" secondAttribute="height" multiplier="0.25" id="1tc-3N-46p"/>
+                            <constraint firstItem="NDe-no-j5a" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4Be-TW-Irw"/>
+                            <constraint firstAttribute="bottom" secondItem="79r-3B-coS" secondAttribute="bottom" multiplier="1.5" constant="20" symbolic="YES" id="JB1-H8-5tM"/>
+                            <constraint firstItem="79r-3B-coS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="JYg-Vc-04h"/>
+                            <constraint firstItem="NDe-no-j5a" firstAttribute="trailing" secondItem="79r-3B-coS" secondAttribute="trailing" id="KDz-i5-v3i"/>
+                            <constraint firstItem="79r-3B-coS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Ll0-kY-fiw"/>
+                            <constraint firstItem="NDe-no-j5a" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="fWv-o4-hPh"/>
+                            <constraint firstItem="bUh-Ku-ffP" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="gef-aq-xEj"/>
+                            <constraint firstItem="79r-3B-coS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="in4-Qz-4xJ"/>
+                            <constraint firstItem="bUh-Ku-ffP" firstAttribute="leading" secondItem="79r-3B-coS" secondAttribute="leading" id="lef-eu-TjN"/>
+                            <constraint firstItem="U5F-Ms-kip" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="nkV-pn-cHL"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bUh-Ku-ffP" secondAttribute="trailing" constant="20" symbolic="YES" id="pUu-34-knY"/>
+                            <constraint firstItem="U5F-Ms-kip" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uYc-b5-XJq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="PlayCardMatch" id="Khe-7b-5mv"/>
+                    <navigationItem key="navigationItem" title="Play Cards Match" id="ZQe-f3-knL">
+                        <barButtonItem key="rightBarButtonItem" title="history" id="Dyw-cd-JCD"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cardsArea" destination="79r-3B-coS" id="zfv-oN-ho2"/>
+                        <outlet property="deckView" destination="U5F-Ms-kip" id="ON7-qP-D42"/>
+                        <outlet property="scoreLabel" destination="bUh-Ku-ffP" id="GHf-eF-pZ5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="dY0-cm-4iY">
+                    <connections>
+                        <action selector="pinchCards:" destination="BYZ-38-t0r" id="nV2-T9-ClL"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="DKJ-WP-28Z">
+                    <connections>
+                        <action selector="panStackOfGatheredCards:" destination="BYZ-38-t0r" id="kZu-ce-E8x"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-107.24637681159422" y="-212.77173913043481"/>
+        </scene>
+        <!--SetGame-->
+        <scene sceneID="Ndg-bM-Bgd">
+            <objects>
+                <viewController title="SetGame" id="ma9-7X-wdO" customClass="SetViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WNr-vZ-j0y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="voM-Qf-xs4">
+                                <rect key="frame" x="20" y="661" width="77" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXh-dF-AGt" customClass="cardsAreaView">
+                                <rect key="frame" x="20" y="20" width="374" height="457.33333333333331"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DRR-U3-yJm" appends="YES" id="nUL-zg-SuH"/>
+                                    <outletCollection property="gestureRecognizers" destination="V22-CX-g6w" appends="YES" id="ZCP-05-8Hp"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IoX-sK-AvM" customClass="DeckView">
+                                <rect key="frame" x="170" y="495.00000000000006" width="74" height="114.33333333333343"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IoX-sK-AvM" secondAttribute="height" multiplier="0.65" id="zyM-yv-Ctk"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GV8-Hf-Gdz">
+                                <rect key="frame" x="314" y="646" width="80" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="RAc-oA-MK2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="StK-4P-7TI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="re-deal" backgroundImage="cardfront">
+                                    <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="0.8985445205" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="redealButton:" destination="ma9-7X-wdO" eventType="touchUpInside" id="Nkh-Jv-ZVh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IoX-sK-AvM" firstAttribute="height" secondItem="WXh-dF-AGt" secondAttribute="height" multiplier="0.25" id="2BZ-xZ-dYN"/>
+                            <constraint firstItem="IoX-sK-AvM" firstAttribute="centerX" secondItem="trC-OX-500" secondAttribute="centerX" id="2Ni-5x-JQk"/>
+                            <constraint firstAttribute="bottom" secondItem="WXh-dF-AGt" secondAttribute="bottom" multiplier="1.5" constant="20" symbolic="YES" id="5UU-td-MgV"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="voM-Qf-xs4" secondAttribute="trailing" constant="20" symbolic="YES" id="6GA-Na-rMv"/>
+                            <constraint firstItem="GV8-Hf-Gdz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WNr-vZ-j0y" secondAttribute="leading" constant="20" symbolic="YES" id="7iD-FV-mCM"/>
+                            <constraint firstItem="WXh-dF-AGt" firstAttribute="top" secondItem="trC-OX-500" secondAttribute="top" id="9xY-QX-vKG"/>
+                            <constraint firstItem="voM-Qf-xs4" firstAttribute="leading" secondItem="WXh-dF-AGt" secondAttribute="leading" id="T20-w1-gHM"/>
+                            <constraint firstItem="GV8-Hf-Gdz" firstAttribute="bottom" secondItem="trC-OX-500" secondAttribute="bottom" id="VGc-pp-Omh"/>
+                            <constraint firstItem="voM-Qf-xs4" firstAttribute="bottom" secondItem="trC-OX-500" secondAttribute="bottom" id="VyF-gi-xpU"/>
+                            <constraint firstItem="IoX-sK-AvM" firstAttribute="centerY" secondItem="WNr-vZ-j0y" secondAttribute="centerY" multiplier="1.5" id="b9F-9W-aq8"/>
+                            <constraint firstItem="WXh-dF-AGt" firstAttribute="leading" secondItem="WNr-vZ-j0y" secondAttribute="leadingMargin" id="gfY-VX-PMR"/>
+                            <constraint firstItem="GV8-Hf-Gdz" firstAttribute="trailing" secondItem="WXh-dF-AGt" secondAttribute="trailing" id="o4S-Ax-xZz"/>
+                            <constraint firstItem="WXh-dF-AGt" firstAttribute="trailing" secondItem="WNr-vZ-j0y" secondAttribute="trailingMargin" id="p6O-fh-ikS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="trC-OX-500"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Set GAme" id="AUU-9K-Qq1"/>
+                    <navigationItem key="navigationItem" title="Play Cards Match" id="hii-ZL-VAU">
+                        <barButtonItem key="rightBarButtonItem" title="history" id="TZx-ES-cZd"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cardsArea" destination="WXh-dF-AGt" id="PzS-CY-wlA"/>
+                        <outlet property="deckView" destination="IoX-sK-AvM" id="RSJ-eY-hKn"/>
+                        <outlet property="scoreLabel" destination="voM-Qf-xs4" id="OEI-q7-pGr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o5b-xT-cFk" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="DRR-U3-yJm">
+                    <connections>
+                        <action selector="pinchCards:" destination="ma9-7X-wdO" id="SLx-Og-0AD"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="V22-CX-g6w">
+                    <connections>
+                        <action selector="panStackOfGatheredCards:" destination="ma9-7X-wdO" id="MS5-xf-Zrx"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-278" y="1048"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cardfront" width="64" height="96"/>
+    </resources>
+</document>
