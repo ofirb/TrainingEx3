@@ -4,25 +4,19 @@
 #import <Foundation/Foundation.h>
 #import "Deck.h"
 #import "Card.h"
-#import "MoveDescriptor.h"
-
 
 @interface CardMatchingGame : NSObject
-- (instancetype) initWithCardCount:(NSUInteger)count
-                         usingDeck:(Deck *)deck;
 
-
-- (void)chooseCardAtIndex:(NSUInteger)index;
+- (instancetype) initUsingDeck:(Deck *)deck;
+- (void)touchCardAtIndex:(NSUInteger)index;
 - (Card *)cardAtIndex:(NSUInteger)index;
 - (void)resetGame;
+- (Card *)addCard;
+- (NSUInteger)cardsInDeckNum;
+
 
 @property (nonatomic, readonly) NSInteger score;
 @property (nonatomic) BOOL gameRuns;
-@property (nonatomic, strong) NSMutableArray *movesDescriptorsHistory;
-
-
-
+@property (nonatomic) NSUInteger activeCardsNum;
 
 @end
-
-
