@@ -3,6 +3,8 @@
 
 #import "ViewController.h"
 
+///defines how many cards should the game begin with
+#define kMatchPlayCardStartCardsNum 24
 @interface PlayingCardsViewController : ViewController
 
 @end
