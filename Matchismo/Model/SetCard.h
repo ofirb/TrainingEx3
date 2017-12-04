@@ -7,7 +7,6 @@
 
 @property (nonatomic) NSUInteger number;
 @property (nonatomic, strong) NSString *symbol;
-@property (nonatomic, strong) NSString *symbols;
 @property (nonatomic, strong) NSString *color;
 @property (nonatomic, strong) NSString *shade;
 

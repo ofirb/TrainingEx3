@@ -3,30 +3,27 @@
 
 #import "PlayingCard.h"
 
-
-
 @implementation PlayingCard
 
-- (NSAttributedString *) contexts {
+- (NSAttributedString *)contexts {
   NSArray *rankStrings = [PlayingCard rankStrings];
   return [[NSAttributedString alloc] initWithString:[rankStrings[self.rank] stringByAppendingString:self.suit]];
 }
 
-- (int)match:(NSArray *)otherCards {
+- (int)scoreForMatchingWithCards:(NSArray *)otherCards {
   assert([otherCards count] == 1);
   int score = 0;
   for (PlayingCard* otherCard in otherCards) {
     if (self.rank == otherCard.rank)                score +=4;
     if ([self.suit isEqualToString:otherCard.suit]) score +=1;
   }
-  
   return score;
 }
 
 @synthesize suit = _suit;
 
-+(NSArray *) validSuits {
-  return @[@"♣︎",@"♠︎",@"♥️",@"♦️"];
++(NSArray *)validSuits {
+  return @[@"♣",@"♠",@"♥",@"♦"];
 }
 
 -(void)setSuit:(NSString *)suit {
@@ -35,11 +32,11 @@
   }
 }
 
-- (NSString *) suit {
+- (NSString *)suit {
   return _suit ? _suit : @"?";
 }
 
-- (NSString*) description {
+- (NSString*)description {
   return [NSString stringWithFormat:@"%lu %@ chosen:%d matched:%d",
           (unsigned long)self.rank, self.suit,
           self.chosen, self.matched];
@@ -50,20 +47,18 @@
            @"7",@"8",@"9",@"10",@"J",@"Q",@"K"];
 }
 
-+ (NSUInteger) maxRank {
++ (NSUInteger)maxRank {
   return [[self rankStrings] count] -1;
 }
 
-- (void) setRank:(NSUInteger)rank {
+- (void)setRank:(NSUInteger)rank {
   if (rank <= [PlayingCard maxRank]) {
     _rank = rank;
   }
 }
 
-- (BOOL)checkMatch:(int)numCards {
-  return numCards == 2;
+- (BOOL)shouldCheckMatch:(NSUInteger)numCards{
+  return numCards == 1;
 }
 
-
 @end
-

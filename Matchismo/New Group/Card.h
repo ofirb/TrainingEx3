@@ -3,14 +3,25 @@
 
 #import <Foundation/Foundation.h>
 
+/// Object represnting ...
+///
 @interface Card : NSObject
 
+///
 @property (strong, nonatomic) NSAttributedString *contexts;
+
+///
 @property (nonatomic) BOOL chosen;
+
+///
 @property (nonatomic) BOOL matched;
 
-- (int)match:(NSArray *)othercards;
-- (BOOL)checkMatch:(int)numCards;
+///
+- (int)scoreForMatchingWithCards:(NSArray *)othercards;
+
+///
+- (BOOL)shouldCheckMatch:(NSUInteger)numCards;
+///
 
 @end
 

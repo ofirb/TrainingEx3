@@ -15,7 +15,7 @@
           self.shade, self.chosen, self.matched];
 }
 
-- (int)match:(NSArray *)othercards {
+- (int)scoreForMatchingWithCards:(NSArray *)othercards {
   assert([othercards count] == 2);
   SetCard* firstCard = self;
   SetCard* secondCard = [othercards firstObject];
@@ -23,16 +23,16 @@
   int matches = (firstCard.number == secondCard.number) + (secondCard.number == thirdCard.number) + (firstCard.number == thirdCard.number);
   if (matches == 1) {NSLog(@"number fails"); return 0;}
   matches = ([firstCard.symbol  isEqualToString:secondCard.symbol]) +
-            ([secondCard.symbol isEqualToString:thirdCard.symbol ]) +
-            ([firstCard.symbol  isEqualToString:thirdCard.symbol ]);
+  ([secondCard.symbol isEqualToString:thirdCard.symbol ]) +
+  ([firstCard.symbol  isEqualToString:thirdCard.symbol ]);
   if (matches == 1) {NSLog(@"symbol fails"); return 0;}
   matches = ([firstCard.shade  isEqualToString:secondCard.shade]) +
-            ([secondCard.shade isEqualToString:thirdCard.shade ]) +
-            ([firstCard.shade  isEqualToString:thirdCard.shade ]);
+  ([secondCard.shade isEqualToString:thirdCard.shade ]) +
+  ([firstCard.shade  isEqualToString:thirdCard.shade ]);
   if (matches == 1) {NSLog(@"shading fails"); return 0;}
   matches = ([firstCard.color  isEqualToString:secondCard.color]) +
-            ([secondCard.color isEqualToString:thirdCard.color ]) +
-            ([firstCard.color  isEqualToString:thirdCard.color ]);
+  ([secondCard.color isEqualToString:thirdCard.color ]) +
+  ([firstCard.color  isEqualToString:thirdCard.color ]);
   if (matches == 1) {NSLog(@"color fails"); return 0;}
   NSLog(@"match!!");
   return 3;
@@ -40,7 +40,7 @@
 
 
 + (NSArray*)validSymbols{
-  return @[@"◼︎", @"▲", @"●"];
+  return @[@"squiggle", @"diamond", @"oval"];
 }
 
 + (NSArray *)validColors {
@@ -50,11 +50,10 @@
 + (NSArray *)validShadings {
   return @[@"solid", @"striped", @"open"];
 }
-- (BOOL)checkMatch:(int)numCards {
-  return numCards == 3;
+
+- (BOOL)shouldCheckMatch:(NSUInteger)numCards{
+  return numCards == 2;
 }
-
-
 
 @end
 

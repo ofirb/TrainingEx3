@@ -6,18 +6,18 @@
 
 @implementation Card
 
--(int)match:(NSArray *)othercards {
-    NSLog(@"inside card match");
-    int score = 0;
-    for (Card *card in othercards) {
-        if ([card.contexts isEqualToAttributedString:self.contexts]) {
-            score = 1;
-        }
+-(int)scoreForMatchingWithCards:(NSArray *)othercards {
+  NSLog(@"inside card match");
+  int score = 0;
+  for (Card *card in othercards) {
+    if ([card.contexts isEqualToAttributedString:self.contexts]) {
+      score = 1;
     }
-    return score;
+  }
+  return score;
 }
 
-- (BOOL)checkMatch:(int)numCards {
+- (BOOL)shouldCheckMatch:(NSUInteger)numCards {
   return false;
 }
 

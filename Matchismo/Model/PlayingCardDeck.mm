@@ -8,16 +8,17 @@
 @implementation PlayingCardDeck
 
 - (void)resetCards {
-    [self clearDeck];
-    for (NSString *suit in [PlayingCard validSuits]){
-        for (NSUInteger rank = 1; rank <= [PlayingCard maxRank]; rank++) {
-            PlayingCard *card = [[PlayingCard alloc] init];
-            card.rank = rank;
-            card.suit = suit;
-            [self addCard:card];
-        }
+  [self clearDeck];
+  for (NSString *suit in [PlayingCard validSuits]){
+    for (NSUInteger rank = 1; rank <= [PlayingCard maxRank]; rank++) {
+      PlayingCard *card = [[PlayingCard alloc] init];
+      card.rank = rank;
+      card.suit = suit;
+      [self addCard:card];
     }
+  }
 }
+
 @end
 
 
