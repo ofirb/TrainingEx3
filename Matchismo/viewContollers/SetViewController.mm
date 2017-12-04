@@ -3,6 +3,8 @@
 
 #import "SetViewController.h"
 #import "SetDeck.h"
+#import "SetCard.h"
+#import "SetCardView.h"
 
 @implementation SetViewController
 
@@ -10,23 +12,8 @@
   return [[SetDeck alloc] init];
 }
 
-- (NSAttributedString *)titleForCard:(SetCard *)card {
-  NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:card.symbols];
-  UIColor *color = [self colorOfCard:card];
-  NSRange range = NSMakeRange(0, [title length]);
-  CGFloat alpha = 0;
-  if ([card.shade isEqualToString:@"striped"]) alpha = 0.35;
-  if ([card.shade isEqualToString:@"solid"]) alpha = 1;
-  UIColor *transparentColor = [color colorWithAlphaComponent:alpha];
-  [title setAttributes:@{NSForegroundColorAttributeName:  transparentColor,
-                         NSStrokeWidthAttributeName: @-4,
-                         NSStrokeColorAttributeName: color,
-                         } range:range];
-  return title;
-}
-
-- (NSAttributedString *)attributedContextOfCard:(Card *)card {
-  return [self titleForCard:(SetCard *)card];
+- (CardView *)createCardView{
+  return [[SetCardView alloc] initWithFrame:CGRectZero];
 }
 
 - (UIColor *)colorOfCard:(SetCard *)card{
@@ -36,14 +23,21 @@
   return [UIColor blackColor];
 }
 
-- (CGFloat)alphaButtonForCard:(Card *)card {
-  return card.chosen ? 0.7 : 1;
+- (void)updateViewWithChosen:(CardView*)cardView card:(Card *)card {
+  [super updateViewWithChosen:cardView card:card];
+  cardView.alpha = card.chosen ? 0.7 : 1;
 }
 
--(UIImage *)backgroundImageForCard:(Card *)card {
-  return [UIImage imageNamed:@"cardfront"];
+- (void)updateViewWithMatched:(CardView*)cardView card:(Card *)card{
+  [super updateViewWithMatched:cardView card:card];
+}
+
+- (NSUInteger)gameStartCardNum{
+  return kSetStartCardsNum;
+}
+
+- (BOOL)gameHasDeck {
+  return YES;
 }
 
 @end
-
-

@@ -2,13 +2,10 @@
 // Created by Ofir Ben Yashar.
 
 #import "ViewController.h"
-#import "SetCard.h"
 
+///defines how many cards should the game begin with
+#define kSetStartCardsNum 12
 @interface SetViewController : ViewController
-
-- (NSAttributedString *)titleForCard:(SetCard *)card;
-
-
 
 @end
 
